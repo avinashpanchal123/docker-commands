@@ -1,0 +1,94 @@
+Basic Docker Commands
+
+1) docker pull <image>   (pull image from docker hub)
+
+2) docker run -it <image>   (Runs a container in interactive mode with a terminal)
+
+3) docker run -d <image>  (Runs a container in the background (detached mode))
+
+4) docker exec -it <container_id> bash 
+    Executes commands inside a running container with an interactive bash shell.
+
+5) apt update
+   Updates the package list inside an Ubuntu container
+
+6) service apache2 start
+   Starts the Apache web server inside the container
+
+7) exit (Exits from the container’s shell.)   
+
+8) docker ps -a  (Lists all containers, including stopped ones.)
+
+
+##########################################################
+
+Networking Commands
+
+1) docker network create <network_name>  (Creates a new Docker network.)
+
+2) docker network ls (Lists all Docker networks.)
+
+3) docker network inspect <network_name>  (Shows detailed information about a Docker network.)
+
+
+#########################################################
+
+Managing Containers with Networking
+
+1) docker run -it -d --net <network_name> -e <environment_vars> --name <container_name> <image>
+   Runs a container in detached mode with specific environment variables and connects it to a network.
+
+Example:
+  docker run -it -d --net mongonet -e ME_CONFIG_MONGODB_ADMINUSERNAME=root -e ME_CONFIG_MONGODB_ADMINPASSWORD=root@123 --name mongodb mongo  
+
+
+2) docker run -it -d --net mongonet -p 3000:3000 --name project node
+   Runs a Node.js project container connected to the mongonet network and maps port 3000.
+
+
+#########################################################
+
+Container and Image Management
+
+1) docker stop <container_id>  (Stops a running container.)
+
+2) docker start <container_id>  (Starts a stopped container.)
+
+3) docker rm <container_id>  (Removes a stopped container.)
+
+4) docker rmi <image_id>  (Removes a Docker image.)
+
+5) docker logs <container_id>  (Shows the logs of a running container.)
+
+7) docker images  ( Lists all available images on the system.)
+
+
+##########################################################
+
+Docker Compose
+
+1) docker-compose up -d
+    Starts services defined in a docker-compose.yml file in detached mode.
+
+2) docker-compose down
+    Stops and removes all services defined in docker-compose.yml.
+
+
+
+##########################################################
+
+Docker System Management
+
+1) docker system prune
+   Cleans up unused containers, networks, images, and build cache.  (======docker system prune)
+
+2) docker stats
+   Shows real-time resource usage statistics for running containers.   (======docker stats)   
+
+
+3) docker inspect <container_id>   (  Shows detailed information about a container. )   
+    e.g. docker inspect abc123
+
+4) docker commit <container_id> <new_image_name>   (Creates a new image from a container’s changes.)
+    e.g. docker commit abc123 custom_image
+
