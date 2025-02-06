@@ -1,4 +1,4 @@
 docker run -it -d --net mongonet -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin --name mongodb mongo
 
 
-docker run -it -d --net mongonet -p 8088:8085 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=admin -e ME_CONFIG_MONGODB_SERVER=mongodb --name express mongo-express
+docker run -it -d --net mongonet -p 8088:8081 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=admin -e ME_CONFIG_MONGODB_SERVER=mongodb --name express mongo-express
