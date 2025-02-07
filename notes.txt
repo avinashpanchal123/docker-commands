@@ -62,6 +62,10 @@ Container and Image Management
 
 7) docker images  ( Lists all available images on the system.)
 
+8) sudo docker stop $(sudo docker ps -a -q)   => stop running containers
+
+9) sudo docker rm $(sudo docker ps -a -q)  ==> Removes all stopped containers
+
 
 ##########################################################
 
